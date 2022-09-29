@@ -27,15 +27,18 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    {
+      src: '~plugins/supabase.js',
+      ssr: true
+    },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-  ],
+  buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -44,5 +47,9 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
+  },
+  publicRuntimeConfig: {
+    VUE_SUPABASE_URL:  process.env.VUE_SUPABASE_URL,
+    VUE_SUPABASE_KEY:  process.env.VUE_SUPABASE_KEY
   }
 }

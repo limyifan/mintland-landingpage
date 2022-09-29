@@ -9,7 +9,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^1.35.7",
     "core-js": "^3.19.3",
+    "dotenv": "^16.0.2",
     "element-ui": "^2.15.6",
     "nuxt": "^2.15.8",
     "sass": "^1.50.0",
@@ -18,6 +20,7 @@
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
+    "vuex": "^4.0.2",
     "webpack": "^4.46.0"
   },
   "devDependencies": {
