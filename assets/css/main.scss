@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Silkscreen";
+  font-weight: normal;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Silkscreen"), url("~static/fonts/Silkscreen-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Silkscreen";
+  font-weight: bold;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Silkscreen"), url("~static/fonts/Silkscreen-Bold.ttf") format("truetype");
+}
