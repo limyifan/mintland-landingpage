@@ -16,14 +16,23 @@ Vue.prototype.$supabase = {
     init(supabaseUrl, supabaseKey) {
         this.supabase = createClient(supabaseUrl, supabaseKey)
     },
+    getSession() {
+      return this.supabase.session
+    },
     setSession(session) {
         this.session = session
-        store.commit("user/SET_USER", this.session.currentSession.user);
+        store.commit("user/SET_USER", this.session.user);
     },
     async signIn(email) {
        const{error}= await this.supabase.auth.signIn({email});
        if(error){
            return error
        }
+    },
+    async signOut() {
+        const {error} = await this.supabase.auth.signOut()
+        if(error){
+            return error
+        }
     }
 }
