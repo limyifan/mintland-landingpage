@@ -9,16 +9,23 @@ export default {
   mounted() {
     const supabaseUrl = this.$config.VUE_SUPABASE_URL;
     const supabaseKey = this.$config.VUE_SUPABASE_KEY;
-    this.$supabase.init(supabaseUrl, supabaseKey)
-    // const session = window.localStorage.getItem('supabase.auth.token')
-    // if (session) {
-    //   this.$supabase.setSession(JSON.parse(session))
-    // }
-    const session =   this.$supabase.supabase.auth.session()
+    this.$Supabase.init(supabaseUrl, supabaseKey)
+    const session =   this.$Supabase.getSession()
     if (session) {
-      this.$supabase.setSession(session)
+      this.$Supabase.setSession(session)
     }
-    console.log("session1",session)
+
+    const refreshToken=this.$route.query.refresh_token
+    if(refreshToken!==undefined)
+    {
+      const {session,error}=this.$Supabase.signInWithRefreshToken(refreshToken)
+      console.log(error)
+      console.log(session)
+      if(session)
+      {
+        this.$router.push("/profile")
+      }
+    }
 
 
   },

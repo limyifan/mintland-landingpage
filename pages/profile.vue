@@ -3,7 +3,7 @@
     <div v-if="user">
       <h1 >Welcome to Mintland: {{user.email}}<br/></h1>
       <h1 > id: {{user.id}}<br/></h1>
-      <h2>Session expired at : {{timeConverter($supabase.session.expires_at)}}</h2>
+      <h2>Session expired at : {{timeConverter($Supabase.getUserSessionExpirationTime())}}</h2>
       <el-button type="danger" @click="signOut">Sign Out</el-button>
     </div>
     <div v-else>
@@ -17,11 +17,6 @@ import {store} from "@/store"
 export default {
   name: "profile",
   mounted() {
-    const session = window.localStorage.getItem('supabase.auth.token')
-    if (session) {
-      console.log("dafdasf")
-      this.$supabase.setSession(JSON.parse(session))
-    }
   },
   data() {
     return {
@@ -39,7 +34,7 @@ export default {
   },
   methods: {
     async signOut() {
-      const error = await this.$supabase.signOut()
+      const error = await this.$Supabase.signOut()
       if (error) {
         this.$message.error("Something went wrong")
       } else {
@@ -60,7 +55,7 @@ export default {
       return time;
     },
     async signIn() {
-      await this.$supabase.signIn(this.email);
+      await this.$Supabase.signIn(this.email);
     }
   }
 }

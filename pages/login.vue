@@ -20,7 +20,7 @@ export default {
       const loadingInstance = Loading.service({
         text: "Processing",
       })
-      const error =await this.$supabase.signIn(this.email);
+      const error =await this.$Supabase.signIn(this.email);
 
       if(error){
         loadingInstance.close()

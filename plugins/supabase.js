@@ -9,30 +9,57 @@ export const userPromise = {
     url: String,
     error: String
 }
-Vue.prototype.$supabase = {
+Vue.prototype.$Supabase = {
     supabase: null,
-    session: null,
 
     init(supabaseUrl, supabaseKey) {
         this.supabase = createClient(supabaseUrl, supabaseKey)
     },
+    getSupabase() {
+        if (this.supabase) {
+            console.log("Supabase is initialized")
+            return this.supabase
+
+        } else {
+            console.log("Supabase is not initialized")
+            this.init(process.env.supabaseUrl, process.env.supabaseKey)
+            return this.supabase
+        }
+
+    },
     getSession() {
-      return this.supabase.session
+        const supabase = this.getSupabase()
+        return supabase.auth.session()
     },
     setSession(session) {
-        this.session = session
-        store.commit("user/SET_USER", this.session.user);
+        store.commit("user/SET_USER", session.user);
     },
     async signIn(email) {
-       const{error}= await this.supabase.auth.signIn({email});
-       if(error){
-           return error
-       }
+        const {error} = await this.supabase.auth.signIn({email});
+        if (error) {
+            return error
+        }
+    },
+    async signInWithRefreshToken(refresh_token) {
+        const {session, error} = await this.supabase.auth.signIn({refreshToken: refresh_token});
+        if (error) {
+            return error
+        }
+        this.setSession(session)
+        return session
     },
     async signOut() {
         const {error} = await this.supabase.auth.signOut()
-        if(error){
+        if (error) {
             return error
         }
+    },
+    getUserSessionExpirationTime() {
+        const supabase = this.getSupabase()
+        return supabase.auth.session().expires_at
+    },
+    getRefreshToken() {
+        const supabase = this.getSupabase()
+        return supabase.auth.session().refresh_token
     }
 }
