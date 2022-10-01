@@ -11,9 +11,10 @@ export const userPromise = {
 }
 Vue.prototype.$Supabase = {
     supabase: null,
+    isSignedIn: false,
 
-    init(supabaseUrl, supabaseKey) {
-        this.supabase = createClient(supabaseUrl, supabaseKey)
+    init() {
+        this.supabase = createClient(process.env.VUE_SUPABASE_URL, process.env.VUE_SUPABASE_KEY)
     },
     getSupabase() {
         if (this.supabase) {
@@ -22,7 +23,7 @@ Vue.prototype.$Supabase = {
 
         } else {
             console.log("Supabase is not initialized")
-            this.init(process.env.supabaseUrl, process.env.supabaseKey)
+            this.init()
             return this.supabase
         }
 
@@ -39,6 +40,7 @@ Vue.prototype.$Supabase = {
         if (error) {
             return error
         }
+        this.isSignedIn=true;
     },
     async signInWithRefreshToken(refresh_token) {
         const {session, error} = await this.supabase.auth.signIn({refreshToken: refresh_token});
@@ -46,6 +48,7 @@ Vue.prototype.$Supabase = {
             return error
         }
         this.setSession(session)
+        this.isSignedIn=true;
         return session
     },
     async signOut() {
@@ -53,6 +56,7 @@ Vue.prototype.$Supabase = {
         if (error) {
             return error
         }
+        this.isSignedIn=false;
     },
     getUserSessionExpirationTime() {
         const supabase = this.getSupabase()

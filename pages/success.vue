@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>You have successfully login !</h1>
-    <a @click="goToAvatarPage">Visit Profile Page</a>
+    <a @click="goToAvatarPage" href="">Visit Profile Page</a>
   </div>
 </template>
 
@@ -14,9 +14,10 @@ export default {
     }
   },
   mounted() {
-    this.refreshToken = this.$Supabase.getRefreshToken()
+    if (this.$Supabase.isSignedIn)
+      this.refreshToken = this.$Supabase.getRefreshToken()
   },
-  methods:{
+  methods: {
     goToAvatarPage: function () {
       window.href.location = "http://localhost:3000/?refreshToken=" + this.refreshToken
     }

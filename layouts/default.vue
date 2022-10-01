@@ -7,9 +7,7 @@
 export default {
   name: "default.vue",
   mounted() {
-    const supabaseUrl = this.$config.VUE_SUPABASE_URL;
-    const supabaseKey = this.$config.VUE_SUPABASE_KEY;
-    this.$Supabase.init(supabaseUrl, supabaseKey)
+    this.$Supabase.init()
     const session =   this.$Supabase.getSession()
     if (session) {
       this.$Supabase.setSession(session)

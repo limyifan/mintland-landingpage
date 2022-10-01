@@ -51,5 +51,9 @@ export default {
   publicRuntimeConfig: {
     VUE_SUPABASE_URL:  process.env.VUE_SUPABASE_URL,
     VUE_SUPABASE_KEY:  process.env.VUE_SUPABASE_KEY
+  },
+  env: {
+    VUE_SUPABASE_URL:  process.env.VUE_SUPABASE_URL,
+    VUE_SUPABASE_KEY:  process.env.VUE_SUPABASE_KEY
   }
 }
