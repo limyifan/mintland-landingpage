@@ -1,0 +1,40 @@
+[
+  {
+    "category": "left-eyes",
+    "priority": 1,
+    "files": [
+      "/parts_64/eyes/left/eye-left-1.png",
+      "/parts_64/eyes/left/eye-left-2.png",
+      "/parts_64/eyes/left/eye-left-3.png",
+      "/parts_64/eyes/left/eye-left-4.png",
+      "/parts_64/eyes/left/eye-left-5.png",
+      "/parts_64/eyes/left/eye-left-6.png",
+      "/parts_64/eyes/left/eye-left-7.png",
+      "/parts_64/eyes/left/eye-left-8.png",
+      "/parts_64/eyes/left/eye-left-9.png",
+      "/parts_64/eyes/left/eye-left-10.png",
+      "/parts_64/eyes/left/eye-left-11.png",
+      "/parts_64/eyes/left/eye-left-12.png",
+      "/parts_64/eyes/left/eye-left-13.png"
+    ]
+  },
+  {
+    "category": "right-eyes",
+    "priority": 2,
+    "files": [
+      "/parts_64/eyes/right/eye-right-1.png",
+      "/parts_64/eyes/right/eye-right-2.png",
+      "/parts_64/eyes/right/eye-right-3.png",
+      "/parts_64/eyes/right/eye-right-4.png",
+      "/parts_64/eyes/right/eye-right-5.png",
+      "/parts_64/eyes/right/eye-right-6.png",
+      "/parts_64/eyes/right/eye-right-7.png",
+      "/parts_64/eyes/right/eye-right-8.png",
+      "/parts_64/eyes/right/eye-right-9.png",
+      "/parts_64/eyes/right/eye-right-10.png",
+      "/parts_64/eyes/right/eye-right-11.png",
+      "/parts_64/eyes/right/eye-right-12.png",
+      "/parts_64/eyes/right/eye-right-13.png"
+    ]
+  }
+]

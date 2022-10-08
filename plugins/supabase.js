@@ -40,6 +40,7 @@ Vue.prototype.$Supabase = {
         if (error) {
             return error
         }
+        console.log("signIn")
         this.isSignedIn=true;
     },
     async signInWithRefreshToken(refresh_token) {

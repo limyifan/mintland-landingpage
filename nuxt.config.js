@@ -54,6 +54,8 @@ export default {
   },
   env: {
     VUE_SUPABASE_URL:  process.env.VUE_SUPABASE_URL,
-    VUE_SUPABASE_KEY:  process.env.VUE_SUPABASE_KEY
-  }
+    VUE_SUPABASE_KEY:  process.env.VUE_SUPABASE_KEY,
+    BASE_URL:  process.env.BASE_URL
+  },
+  dev: process.env.NODE_ENV === 'DEV'
 }
