@@ -1,52 +1,14 @@
 [
   {
+
     "category": "身体",
-    "priority": 1,
     "files": [
       "/parts_64/身体/1.png",
       "/parts_64/身体/2.png"
     ]
   },
   {
-    "category": "发型-前",
-    "priority": 2,
-    "files": [
-      "/parts_64/发型/前/1.png",
-      "/parts_64/发型/前/2.png",
-      "/parts_64/发型/前/3.png",
-      "/parts_64/发型/前/4.png",
-      "/parts_64/发型/前/5.png",
-      "/parts_64/发型/前/6.png",
-      "/parts_64/发型/前/7.png"
-    ]
-  },
-  {
-    "category": "发型-后",
-    "priority": 2,
-    "files": [
-      "/parts_64/发型/后/基本.png",
-      "/parts_64/发型/后/基本 - 中.png",
-      "/parts_64/发型/后/基本 - 中 - 卷.png",
-      "/parts_64/发型/后/基本 - 短.png",
-      "/parts_64/发型/后/基本 - 短 - 卷.png",
-      "/parts_64/发型/后/基本 - 长.png"
-    ]
-  },
-  {
-    "category": "发型-横",
-    "priority": 2,
-    "files": [
-      "/parts_64/发型/横/下垂 - 中.png",
-      "/parts_64/发型/横/下垂 - 短.png",
-      "/parts_64/发型/横/下垂 - 长.png",
-      "/parts_64/发型/横/下垂 - 长 - 小卷.png",
-      "/parts_64/发型/横/翘起.png",
-      "/parts_64/发型/横/谢顶.png"
-    ]
-  },
-  {
     "category": "发型-后附加",
-    "priority": 2,
     "files": [
       "/parts_64/发型/后附加/双丸子.png",
       "/parts_64/发型/后附加/马尾.png",
@@ -54,8 +16,62 @@
     ]
   },
   {
+    "category": "left-eyes",
+    "files": [
+      "/parts_64/eyes/left/eye-left-1.png",
+      "/parts_64/eyes/left/eye-left-2.png",
+      "/parts_64/eyes/left/eye-left-3.png",
+      "/parts_64/eyes/left/eye-left-4.png",
+      "/parts_64/eyes/left/eye-left-5.png",
+      "/parts_64/eyes/left/eye-left-6.png",
+      "/parts_64/eyes/left/eye-left-7.png",
+      "/parts_64/eyes/left/eye-left-8.png",
+      "/parts_64/eyes/left/eye-left-9.png",
+      "/parts_64/eyes/left/eye-left-10.png",
+      "/parts_64/eyes/left/eye-left-11.png",
+      "/parts_64/eyes/left/eye-left-12.png",
+      "/parts_64/eyes/left/eye-left-13.png"
+    ]
+  },
+  {
+    "category": "right-eyes",
+    "files": [
+      "/parts_64/eyes/right/eye-right-1.png",
+      "/parts_64/eyes/right/eye-right-2.png",
+      "/parts_64/eyes/right/eye-right-3.png",
+      "/parts_64/eyes/right/eye-right-4.png",
+      "/parts_64/eyes/right/eye-right-5.png",
+      "/parts_64/eyes/right/eye-right-6.png",
+      "/parts_64/eyes/right/eye-right-7.png",
+      "/parts_64/eyes/right/eye-right-8.png",
+      "/parts_64/eyes/right/eye-right-9.png",
+      "/parts_64/eyes/right/eye-right-10.png",
+      "/parts_64/eyes/right/eye-right-11.png",
+      "/parts_64/eyes/right/eye-right-12.png",
+      "/parts_64/eyes/right/eye-right-13.png"
+    ]
+  },
+  {
+    "category": "手套-左",
+    "files": [
+      "/parts_64/手套/左手/冬季手套.png",
+      "/parts_64/手套/左手/医用手套.png",
+      "/parts_64/手套/左手/拳击手套.png"
+    ]
+  },
+  {
+    "category": "Bra",
+    "files": [
+      "/parts_64/Bra/1.png",
+      "/parts_64/Bra/2.png",
+      "/parts_64/Bra/3.png",
+      "/parts_64/Bra/4.png",
+      "/parts_64/Bra/5.png",
+      "/parts_64/Bra/6.png"
+    ]
+  },
+  {
     "category": "内裤",
-    "priority": 4,
     "files": [
       "/parts_64/内裤/2.png",
       "/parts_64/内裤/3.png",
@@ -69,7 +85,6 @@
   },
   {
     "category": "袜子",
-    "priority": 5,
     "files": [
       "/parts_64/袜子/1.png",
       "/parts_64/袜子/2.png",
@@ -79,20 +94,41 @@
     ]
   },
   {
-    "category": "Bra",
-    "priority": 6,
+    "category": "发型-后",
     "files": [
-      "/parts_64/Bra/1.png",
-      "/parts_64/Bra/2.png",
-      "/parts_64/Bra/3.png",
-      "/parts_64/Bra/4.png",
-      "/parts_64/Bra/5.png",
-      "/parts_64/Bra/6.png"
+      "/parts_64/发型/后/基本.png",
+      "/parts_64/发型/后/基本 - 中.png",
+      "/parts_64/发型/后/基本 - 中 - 卷.png",
+      "/parts_64/发型/后/基本 - 短.png",
+      "/parts_64/发型/后/基本 - 短 - 卷.png",
+      "/parts_64/发型/后/基本 - 长.png"
+    ]
+  },
+  {
+    "category": "发型-前",
+    "files": [
+      "/parts_64/发型/前/1.png",
+      "/parts_64/发型/前/2.png",
+      "/parts_64/发型/前/3.png",
+      "/parts_64/发型/前/4.png",
+      "/parts_64/发型/前/5.png",
+      "/parts_64/发型/前/6.png",
+      "/parts_64/发型/前/7.png"
+    ]
+  },
+  {
+    "category": "发型-横",
+    "files": [
+      "/parts_64/发型/横/下垂 - 中.png",
+      "/parts_64/发型/横/下垂 - 短.png",
+      "/parts_64/发型/横/下垂 - 长.png",
+      "/parts_64/发型/横/下垂 - 长 - 小卷.png",
+      "/parts_64/发型/横/翘起.png",
+      "/parts_64/发型/横/谢顶.png"
     ]
   },
   {
     "category": "外裤",
-    "priority": 7,
     "files": [
       "/parts_64/外裤/1.png",
       "/parts_64/外裤/2.png",
@@ -110,7 +146,6 @@
   },
   {
     "category": "外衣",
-    "priority": 8,
     "files": [
       "/parts_64/外衣/1.png",
       "/parts_64/外衣/2.png",
@@ -133,7 +168,6 @@
   },
   {
     "category": "鞋子",
-    "priority": 9,
     "files": [
       "/parts_64/鞋子/1.png",
       "/parts_64/鞋子/2.png",
@@ -142,8 +176,15 @@
     ]
   },
   {
+    "category": "手套-右",
+    "files": [
+      "/parts_64/手套/右手/冬季手套.png",
+      "/parts_64/手套/右手/医用手套.png",
+      "/parts_64/手套/右手/拳击手套.png"
+    ]
+  },
+  {
     "category": "外衣附加",
-    "priority": 10,
     "files": [
       "/parts_64/外衣附加/1.png",
       "/parts_64/外衣附加/2.png"
@@ -151,40 +192,21 @@
   },
   {
     "category": "眼镜",
-    "priority": 11,
     "files": [
       "/parts_64/眼镜/1.png",
       "/parts_64/眼镜/2.png",
       "/parts_64/眼镜/3.png",
-      "/parts_64/眼镜/4.png"
+      "/parts_64/眼镜/4.png",
+      "/parts_64/眼镜/5.png"
     ]
   },
   {
     "category": "帽子",
-    "priority": 12,
     "files": [
       "/parts_64/帽子/1.png",
       "/parts_64/帽子/2.png",
       "/parts_64/帽子/3.png",
       "/parts_64/帽子/4.png"
-    ]
-  },
-  {
-    "category": "手套-左",
-    "priority": 13,
-    "files": [
-      "/parts_64/手套/左手/1L.png",
-      "/parts_64/手套/左手/2L.png",
-      "/parts_64/手套/左手/3L.png"
-    ]
-  },
-  {
-    "category": "手套-右",
-    "priority": 14,
-    "files": [
-      "/parts_64/手套/右手/1.png",
-      "/parts_64/手套/右手/2.png",
-      "/parts_64/手套/右手/3.png"
     ]
   }
 ]

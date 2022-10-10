@@ -1,11 +1,11 @@
 <template>
   <div class="preview">
-      <canvas hidden height="25" width="25" id="eye-canvas"/>
-      <canvas hidden height="64" width="64" id="body-canvas"/>
-      <canvas hidden height="300" width="300" id="download-canvas"/>
-      <canvas id="preview-canvas" height="64" width="64"/>
+    <canvas hidden height="25" width="25" id="eye-canvas"/>
+    <canvas hidden height="64" width="64" id="body-canvas"/>
+    <canvas hidden height="300" width="300" id="download-canvas"/>
+    <canvas id="preview-canvas" height="64" width="64"/>
     <div>
-      <el-button type="primary" plain @click="saveCanvasImage">Save Image</el-button>
+      <button type="primary" plain @click="saveCanvasImage">Save Image</button>
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@ import {blendColors} from "../lib/utils";
 
 export default {
   name: "AvatarPreview",
-  props: ["configs"],
+  props: ["eyeConfig", "bodyConfig"],
   data() {
     return {
       eyecanvas: null,
@@ -26,18 +26,21 @@ export default {
   },
   mounted() {
     this.initCanvas()
-    this.triggerDraw()
   },
   methods: {
-    triggerDraw() {
-      const all = []
-      for (let config of this.configs) {
-        const items = Object.values(config).filter(Boolean);
-        items.sort((a, b) => a.priority - b.priority);
-        all.push(items)
-
+    triggerDrawEyes() {
+      if (this.eyeConfig) {
+        const items = Object.values(this.eyeConfig).filter(Boolean);
+        this.drawItems(this.eyecanvas, items);
       }
-      this.drawItems(all);
+
+    },
+    triggerDrawBody() {
+      if (this.bodyConfig) {
+        const items = Object.values(this.bodyConfig).filter(Boolean);
+        this.drawItems(this.bodyCanvas, items);
+      }
+
     },
     initCanvas: function () {
       this.mainCanvas = document.getElementById("preview-canvas");
@@ -141,28 +144,18 @@ export default {
     colorHexToRgb(hex) {
       return parseInt(hex.slice(1), 16)
     },
-    drawItems(all) {
-      console.log("draw", all)
-      for (let i = 0; i < all.length; i++) {
-        const items = all[i];
-        if (!this.eyecanvas) return;
-        let ctx
-        if (i === 0)
-          ctx = this.eyecanvas.getContext("2d");
-        else
-          ctx = this.bodyCanvas.getContext("2d");
+    drawItems(canvas, items) {
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+      // ctx.imageSmoothingEnabled = false;
 
-        // ctx.imageSmoothingEnabled = false;
-        // ctx.clearRect(0, 0, w, h);
+      const imageData = this.blendItems(items);
 
-        const imageData = this.blendItems(items);
+      if (!imageData)
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      else
+        ctx.putImageData(imageData, 0, 0);
 
-        if (!imageData) return;
-        if (i === 0)
-          ctx.putImageData(imageData, 0, 0);
-        else
-          ctx.putImageData(imageData, 0, 0);
-      }
       var ctx3 = this.mainCanvas.getContext('2d');
       ctx3.clearRect(0, 0, this.mainCanvas.width, this.mainCanvas.height);
       ctx3.drawImage(this.bodyCanvas, 0, 0);
@@ -175,8 +168,8 @@ export default {
 <style scoped>
 
 canvas#preview-canvas {
-  height: 25vw;
-  width: 25vw;
+  height: 20vw;
+  width: 20vw;
   image-rendering: pixelated;
 }
 

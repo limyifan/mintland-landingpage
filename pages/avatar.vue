@@ -1,21 +1,17 @@
 <template>
-  <el-main>
-    <el-row v-if="resourcesPromise&&resourcesPromise1">
-      <el-col :md="24" :lg="6" class="preview">
-        <AvatarPreview :configs="[lookConfig,lookConfig1]" ref="avatarPreview"/>
-      </el-col>
-      <el-col :md="24" :lg="6" class="closet">
-        <Closet :resource="resource" :updateConfig="collectItem" v-for="resource in resourcesPromise"/>
-        <Closet :resource="resource" :updateConfig="collectItem1" v-for="resource in resourcesPromise1.slice(0,1)"/>
-        <Closet :resource="resource" :updateConfig="collectItem1" v-for="resource in resourcesPromise1.slice(1,7)"/>
-      </el-col>
-      <el-col :md="24" :lg="6" class="closet">
-        <Closet :resource="resource" :updateConfig="collectItem1" v-for="resource in resourcesPromise1.slice(7)"/>
-      </el-col>
-    </el-row>
-    <div v-else v-loading.fullscreen.lock="true"></div>
+  <div class="container">
+    <div v-if="bodyPromise" class="row">
+      <div class="preview col">
+        <AvatarPreview :eye-config="eyeConfig" :body-config="bodyConfig" ref="avatarPreview"/>
+      </div>
+      <div class="closet col">
+<!--        <Closet :resource="resource" :updateConfig="collectEyesItem" v-for="resource in eyesPromise"/>-->
+        <Closet :resource="resource" :updateConfig="collectBodyItem" v-for="resource in bodyPromise"/>
+      </div>
+    </div>
+    <div v-else><h1>Loading....</h1></div>
 
-  </el-main>
+  </div>
 </template>
 
 <script>
@@ -36,53 +32,63 @@ export default {
   // },
   //
   async mounted() {
-    this.resourcesPromise = await loadResourceFromManifest("parts_64/eyes-manifest.json");
-    this.resourcesPromise1 = await loadResourceFromManifest("parts_64/manifest.json");
+    // this.eyesPromise = await loadResourceFromManifest("parts_64/eyes-manifest.json");
+    this.bodyPromise = await loadResourceFromManifest("/parts_64/manifest.json");
   },
   data() {
     return {
-      lookConfig: {},
-      lookConfig1: {},
-      lookConfig2: {},
-      resourcesPromise: null,
-      resourcesPromise1: null,
-      resourcesPromise2: [],
+      eyeConfig: {},
+      bodyConfig: {},
+      eyesPromise: null,
+      bodyPromise: null,
     }
   },
   methods:
       {
-        collectItem(item) {
+        collectEyesItem(item) {
           if (item.image) {
-            this.lookConfig[item.category] = item
+            this.eyeConfig[item.category] = item
           } else {
-            delete this.lookConfig[item.category]
-            this.lookConfig = this.lookConfig
+            delete this.eyeConfig[item.category]
+            this.eyeConfig = this.eyeConfig
           }
-          this.$refs.avatarPreview.triggerDraw()
+          this.$refs.avatarPreview.triggerDrawEyes()
         },
-        collectItem1(item) {
+        collectBodyItem(item) {
           if (item.image) {
-            this.lookConfig1[item.category] = item
+            this.bodyConfig[item.category] = item
           } else {
-            delete this.lookConfig1[item.category]
-            this.lookConfig1 = this.lookConfig1
+            delete this.bodyConfig[item.category]
+            this.bodyConfig = this.bodyConfig
           }
-          this.$refs.avatarPreview.triggerDraw()
+          this.$refs.avatarPreview.triggerDrawBody()
         },
-        collectItem2(item) {
-          if (item.image) {
-            this.lookConfig2[item.category] = item
-          } else {
-            delete this.lookConfig2[item.category]
-            this.lookConfig2 = this.lookConfig2
-          }
-          this.$refs.avatarPreview.triggerDraw()
-        }
       }
 }
 </script>
 
 <style scoped>
+.container{
+  width: 50%;
+  margin: 0 auto;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.closet{
+  overflow: scroll;
+  height: 100vh;
+}
+.preview{
+  flex: 1;
+}
+.closet{
+  flex:4;
+}
 @media (max-width: 980px) {
 
 }

@@ -22,7 +22,6 @@ export default {
 
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
-        'element-ui/lib/theme-chalk/index.css',
         {
             src: '~/assets/css/main.scss',
             lang: 'scss'
@@ -31,7 +30,6 @@ export default {
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
-        '@/plugins/element-ui',
         {
             src: '~plugins/supabase.js',
             ssr: true
@@ -49,7 +47,6 @@ export default {
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
-        transpile: [/^element-ui/],
     },
     publicRuntimeConfig: {
         VUE_SUPABASE_URL: process.env.VUE_SUPABASE_URL,

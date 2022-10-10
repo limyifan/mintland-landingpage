@@ -1,15 +1,15 @@
 <template>
-  <el-main>
+  <div>
     <div v-if="user">
       <h1 >Welcome to Mintland: {{user.email}}<br/></h1>
       <h1 > id: {{user.id}}<br/></h1>
       <h2>Session expired at : {{timeConverter($Supabase.getUserSessionExpirationTime())}}</h2>
-      <el-button type="danger" @click="signOut">Sign Out</el-button>
+      <button type="danger" @click="signOut">Sign Out</button>
     </div>
     <div v-else>
      <h1>You are not signed in yet. Please <a href="/login">Sign In</a></h1>
     </div>
-  </el-main>
+  </div>
 </template>
 
 <script>

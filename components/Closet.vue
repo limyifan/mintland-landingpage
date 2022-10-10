@@ -11,7 +11,9 @@
 
       <div v-if="config.palettes!=null">
         <div>Palette:</div>
-        <color-palette :id="`input-color-picker-${resource.category+i}`" :update-config="updateConfig" :palette="palette" :onColorChange="changePalette"  v-for="(palette,i) in Object.entries(config.palettes)"/>
+        <color-palette :id="`input-color-picker-${resource.category+i}`" :update-config="updateConfig"
+                       :palette="palette" :onColorChange="changePalette"
+                       v-for="(palette,i) in Object.entries(config.palettes)"/>
       </div>
     </fieldset>
   </div>
@@ -32,9 +34,15 @@ export default {
     }
   },
   mounted() {
-    this.config.category =this. resource.category;
+    this.config.category = this.resource.category;
     this.config.priority = this.resource.priority;
-    this.selectImage(this.resource.images[0]);
+    if (this.resource.image) {
+      this.config.image = this.resource.image;
+    }
+    if (this.resource.category === "身体")
+    {
+      this.selectImage(this.resource.images[0]);
+    }
   },
   methods: {
     createObjectURL(blob) {
@@ -70,7 +78,9 @@ export default {
 .images {
   display: flex;
 }
-
+legend{
+  font-size: 2vh;
+}
 .image-select {
   display: flex;
   background-color: lightgray;
